@@ -1,0 +1,52 @@
+Tournois
+
+_id
+nom
+Joueurs
+date[debut-fin]
+format
+categories (âge, niveau)
+nombreTables
+lieu[addresse...]
+status
+programme
+
+
+
+Joueur
+
+
+_id
+nom
+preno
+Catégorie[age niveau}
+
+
+Matchs
+
+
+_id
+idTournoi
+phase
+format
+joueurs[1-2]
+scores
+Heure
+table
+
+
+
+Équipement
+
+_id
+table[emplacement, statut]
+balle[emplacement, statut]
+
+
+Equipe
+
+id
+nom
+joueur[id]
+
+
