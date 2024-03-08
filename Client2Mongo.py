@@ -34,6 +34,7 @@ if __name__ == "__main__":
     
     for joueurs in bd.find("joueurs"):
         pprint.pprint(joueurs)
-    
+        print(" ")
+
     
     
