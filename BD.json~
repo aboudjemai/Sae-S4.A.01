@@ -52,6 +52,7 @@ db.joueurs.insertMany([
 
 db.matchs.insertOne({
   "_id": "1",
+  "idTournoi": "1",
   "phase": "Quart de finale",
   "format": "Simple",
   "joueurs": ["1", "2"],

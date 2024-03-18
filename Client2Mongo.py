@@ -40,7 +40,7 @@ if __name__ == "__main__":
     
     print(" ")
     
-    for joueurs in bd.find("joueurs"):
+    for joueurs in bd.find("tournois"):
         pprint.pprint(joueurs)
         print(" ")
 

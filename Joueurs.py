@@ -1,25 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar  6 16:41:09 2024
+Created on Mon Mar  4 10:18:56 2024
 
 @author: aboudjemai
 """
-from Client2Mongo import Client2Mongo
+
+from flask import Blueprint, jsonify, request
 from pymongo import MongoClient
-import pprint
+from Client2Mongo import Client2Mongo
 
-class Joueurs:
-    def __init__(self):
-        self.connectionBd = Client2Mongo("iut_boudjemai")
-        
-    def liste_joueurs(self):
-        return self.connectionBd.get_collection("joueurs").find()
+joueurs_bp = Blueprint('joueurs', __name__)
 
-if __name__ == "__main__":
+bd = Client2Mongo("iut_boudjemai")
     
-    j = Joueurs()
     
-    for joueurs in j.liste_joueurs():
-        pprint.pprint(joueurs)
-        print(" ")
+@joueurs_bp.route('/joueurs/nbJoueurs', methods=['GET'])
+def nombre_de_joueur():
+    nb_joueurs = bd.bd["joueurs"].count_documents({})
+    return jsonify(nb_joueurs)
+       
+    
+@joueurs_bp.route('/joueurs', methods=['POST'])
+def inserer_joueur():
+    joueur = request.json
+    collJoueur = bd.get_collection("joueurs")
+    insertion = collJoueur.insert_one(joueur)
+    return jsonify({"id": str(insertion.inserted_id)})

@@ -21,15 +21,3 @@ def list_des_coll():
         collections = bd.liste_des_collections()
         return jsonify(collections)
     
-@collections_bp.route('/collections/nbJoueurs', methods=['GET'])
-def nombre_de_joueur():
-    nb_joueurs = bd.bd["joueurs"].count_documents({})
-    return jsonify(nb_joueurs)
-       
-    
-@collections_bp.route('/collections', methods=['POST'])
-def inserer_joueur():
-    joueur = request.json
-    collJoueur = bd.get_collection("joueurs")
-    insertion = collJoueur.insert_one(joueur)
-    return jsonify({"id": str(insertion.inserted_id)})
