@@ -1,0 +1,17 @@
+<button type="button" class="btn btn-success" (click)="afficherTournois()">Afficher les Tournois</button>
+
+<div *ngIf="showItems">
+  <ul>
+    <li *ngFor="let item of items">
+      Nom: {{ item.nom }}, <br>
+      Lieu: {{ item.lieu.ville }},<br>
+      Date de début: {{ item.date.debut }},<br>
+      Date de fin: {{ item.date.fin }},<br>
+      Catégorie d'âge: {{ item.categories.age }},<br>
+      Niveau: {{ item.categories.niveau }},<br>
+      Format: {{ item.format }},<br>
+      Tables: {{ item.nombreTables }},<br>
+      Statut: {{ item.status }}
+    </li>
+  </ul>
+</div>
