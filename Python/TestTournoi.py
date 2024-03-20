@@ -9,7 +9,6 @@ Created on Mon Mar 18 15:54:32 2024
 import unittest
 from Tournoi import Tournoi
 
-# Assuming Tournoi class definition is as provided above
 
 class TestTournoi(unittest.TestCase):
     def test_nom_tournoi_uniquement_chaineCarac(self):

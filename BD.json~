@@ -1,4 +1,5 @@
-db.tournois.insertOne({
+db.tournois.insertOne([
+	{
   "nom": "Championnat National",
   "Joueurs": ["1", "2"],
   "date": {
@@ -19,7 +20,30 @@ db.tournois.insertOne({
   },
   "status": "Prévu",
   "programme": "Détails"
-})
+},
+	{
+  "nom": "Championnat Regional",
+  "Joueurs": ["1", "2"],
+  "date": {
+    "debut": "19/03/2024",
+    "fin": "22/03/2024"
+  },
+  "format": "Simple",
+  "categories": {
+    "age": "17-25",
+    "niveau": "Debutant"
+  },
+  "nombreTables": 5,
+  "lieu": {
+    "adresse": "140 rue de la nouvelle france",
+    "ville": "Montreuil",
+    "codePostal": "93100",
+    "pays": "France"
+  },
+  "status": "En cours",
+  "programme": "Détails"
+}
+])
 
 
 db.joueurs.insertMany([
@@ -52,7 +76,6 @@ db.joueurs.insertMany([
 
 db.matchs.insertOne({
   "_id": "1",
-  "idTournoi": "1",
   "phase": "Quart de finale",
   "format": "Simple",
   "joueurs": ["1", "2"],

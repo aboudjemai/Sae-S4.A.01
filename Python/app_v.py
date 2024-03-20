@@ -15,16 +15,17 @@ Created on Mon Mar  4 10:30:27 2024
 """
 
 from flask import Flask
-from collection_routes import collections_bp
+from flask_cors import CORS
 from Joueurs import joueurs_bp
 from Tournoi import tournoi_bp
 
 app = Flask(__name__)
+CORS(app)  
 
-app.register_blueprint(collections_bp, url_prefixes='/collections')
 app.register_blueprint(joueurs_bp, url_prefixes='/joueurs')
 app.register_blueprint(tournoi_bp, url_prefixes='/tournoi')
 
-
 if __name__ == '__main__':
     app.run(debug=True)
+
+

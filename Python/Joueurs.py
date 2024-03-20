@@ -27,3 +27,14 @@ def inserer_joueur():
     collJoueur = bd.get_collection("joueurs")
     insertion = collJoueur.insert_one(joueur)
     return jsonify({"id": str(insertion.inserted_id)})
+
+
+@joueurs_bp.route('/joueurs/<string:nom>', methods=['GET'])
+def chercher_joueur(nom):
+    collection = bd.get_collection("joueurs")
+    joueur = collection.find_one({"nom": nom})
+    
+    if joueur is None:
+        return ("erreur")
+    else:
+        return jsonify(joueur)

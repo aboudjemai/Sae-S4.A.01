@@ -6,7 +6,7 @@ Created on Mon Mar  4 10:18:56 2024
 @author: aboudjemai
 """
 
-from flask import Blueprint, jsonify, request, Response
+from flask import Blueprint, jsonify, request
 from Client2Mongo import Client2Mongo
 from bson.objectid import ObjectId
 import re
